@@ -1,0 +1,9 @@
+1. 웹 브라우저 주소줄에 주소 입력 + ENTER -get
+
+2. 버튼 : form - get
+            form - post
+
+3. link - get
+
+HTTP method : get,post
+
