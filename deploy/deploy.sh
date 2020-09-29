@@ -2,7 +2,7 @@ D:\A_TeachingMaterial\6.JspSpring\workspace\jsp\deploy\deploy.sh //참고만 실
 
 deploy.shell만 실행하면 git에서 다운을받고 package하고 파일이름 바꾸고 톰캣실행 복사 정지 다시실행
 
- cd/d/A_TeachingMaterial/6.JspSpring/deploy/jsp/
+ cd /d/A_TeachingMaterial/6.JspSpring/deploy/jsp/
  git pull //최신화
  
  mvn clean	mvn 다지우기
