@@ -28,7 +28,7 @@
 	
 	parameterMap : Map<String, String[]>
 	request.getParameterMap() :<br> <%= request.getParameterMap() %>
-<% Enumeration<String> name = request.getParameterNames();%>
+	<% Enumeration<String> name = request.getParameterNames();%>
 	
 	이름 : <%=name %>
 
