@@ -6,7 +6,7 @@
   <packaging>war</packaging>
   
   <properties>
-  	<project.build.souerceEndcoding>utf-8</project.build.souerceEndcoding>
+  	<project.build.sourceEndcoding>utf-8</project.build.sourceEndcoding>
   </properties>
   
   <build>
