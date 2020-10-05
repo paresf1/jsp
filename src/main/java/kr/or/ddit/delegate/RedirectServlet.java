@@ -32,7 +32,8 @@ public class RedirectServlet extends HttpServlet {
 		//문자열 결합만 조심하자 "redirectServlet.doGet()" "doGet()"
 //		if(로깅레벨이 > debug)
 		//logger.debug("redirectServlet " + "doGet()"); xx
-		//logger.debug("redirectServlet.doGet()"); oo
+//		logger.debug("redirectServlet.doGet()"); 
+//		logger.debug("redirectServlet {} {}", "doGet()" ,"test"); //oo
 		logger.debug("redirectServlet {} {}", "doGet()" ,"test"); //oo
 		
 		//응답을 다른 jsp에게 위임 하는 첫번째 방법 : redirect
@@ -61,7 +62,6 @@ public class RedirectServlet extends HttpServlet {
 		// 서버가 redirect로 응답을 할경우 클라이언트는 해당 주소로 
 		// 새로운 요청을 보내기 때문에 servlet에서 request 스코프에 설정한 속성은
 		// 사용할 수 없기 때문에 redirectView.jsp에서는 에러가 발생한다.
-		
 		
 		response.sendRedirect(request.getContextPath() + "/delegate/redirectView.jsp");
 		
