@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Servlet implementation class jspTestServlet
  */
-@WebServlet("/sumCalculation")
+@WebServlet("/mulCalculation")
 public class mulCalculation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,7 +29,7 @@ public class mulCalculation extends HttpServlet {
 //		request.getAttribute("end");
 		
 		
-		request.getRequestDispatcher("jsp/getTest.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/mulTest.jsp").forward(request, response);
 		
 	}
 
@@ -37,24 +37,19 @@ public class mulCalculation extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		logger.debug("sumCalculation.doPost()");
+		logger.debug("mulCalculation.doPost()");
 		int start = Integer.parseInt((request.getParameter("start")));
 		int end = Integer.parseInt((request.getParameter("end")));
 		
-		int sum = 0;
-		for(int i = start ; i <=end ; i++) {
-			sum += i;
-		}
+		int result = start* end;
 		
-		request.setAttribute("sumResult", sum);
+		request.setAttribute("mulResult", result);
 		
-		logger.debug("{}",sum);
-		request.getRequestDispatcher("jsp/sumResult.jsp").forward(request, response);
+		logger.debug("{}",result);
+		request.getRequestDispatcher("jsp/mulResult.jsp").forward(request, response);
 //		// 5 1 12345
 //		// 7 3 34567
 //		// 8 6 7
 		
-		
 	}
-
 }
