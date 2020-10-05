@@ -1,6 +1,7 @@
 package kr.or.ddit.delegate;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,18 +11,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Servlet implementation class RedirectServlet
  */
 @WebServlet("/redirectServlet")
 public class RedirectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+   
+	//인자로 입력한 클래스의 패키지 정보를 확인 : kr.or.ddit.delegate.RedirectServlet
+//	private static Logger logger = LoggerFactory.getLogger(RedirectServlet.class);
+	private static final Logger logger = LoggerFactory.getLogger(RedirectServlet.class);
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//servlet은 응답을 만들어 내는 역할이 아니라 요청을 받고 로직을 처리한후
 		//jsp에게 화면을 응답 생성을 위임한다.
 		
-		System.out.println("redirectServlet.doGet()");
+		//문자열 결합만 조심하자 "redirectServlet.doGet()" "doGet()"
+//		if(로깅레벨이 > debug)
+		//logger.debug("redirectServlet " + "doGet()"); xx
+		//logger.debug("redirectServlet.doGet()"); oo
+		logger.debug("redirectServlet {} {}", "doGet()" ,"test"); //oo
 		
 		//응답을 다른 jsp에게 위임 하는 첫번째 방법 : redirect
 		// response 객체의 sendRedirect 메소드를 통해

@@ -1,4 +1,4 @@
-D:\A_TeachingMaterial\6.JspSpring\workspace\jsp\deploy\deploy.sh 
+#D:\A_TeachingMaterial\6.JspSpring\workspace\jsp\deploy\deploy.sh 
 
 deploy.shell package
 
