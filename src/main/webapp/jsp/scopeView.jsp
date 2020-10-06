@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form action = "<%= request.getContextPath() %>/ScopeServlet" method = "POST">
+		<input type = "text" name = "param" /> <br>
+		<input type = "submit" value = "전송">
+	</form>
+
+
 	request : <%= request.getAttribute("requestAttr") %><br>
 	session : <%= session.getAttribute("sessionAttr") %><br>
 	application : <%= application.getAttribute("applicaitonAttr") %><br>
