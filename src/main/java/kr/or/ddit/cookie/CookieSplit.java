@@ -29,7 +29,7 @@ public class CookieSplit {
 		
 		for(int i =0 ; i <b.length ; i++) {
 			if(b[i].equals(cookieName)) {
-				result = b[i];
+				result = b[i+1];
 				
 			}
 		}
@@ -40,4 +40,8 @@ public class CookieSplit {
 		
 		return result; 
 	}
+	
+	
+	
+	
 }
