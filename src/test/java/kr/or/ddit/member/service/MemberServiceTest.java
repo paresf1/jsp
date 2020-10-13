@@ -14,21 +14,20 @@ public class MemberServiceTest {
 		
 		/***Given***/
 		MemberServiceI memberService = new MemberService();
-		String userId = "Brown";
-		String pass = "passBrown";
+		String userId = "brown";
+		String pass = "brownPass";
 		
 		MemberVo answerMemberVo = new MemberVo();
-		answerMemberVo.setUserId("brown");
-		answerMemberVo.setPassword("passBrown");
+		answerMemberVo.setUserid("brown");
+		answerMemberVo.setPass("brownPass");
 		
 		/***When***/
 		MemberVo memberVo = memberService.getMember(userId);
-//		MemberVo memberVo = memberDao.getMember(userId);
 		
 		
 		/***Then***/
-//		assertEquals("brown", memberVo.getUserId());
-//		assertEquals("passBrown", memberVo.getPassword());
+		assertEquals("brown", memberVo.getUserid());
+		assertEquals("brownPass", memberVo.getPass());
 		
 		assertEquals(answerMemberVo, memberVo);
 	}

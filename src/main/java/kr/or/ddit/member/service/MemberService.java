@@ -6,6 +6,12 @@ import kr.or.ddit.member.model.MemberVo;
 
 public class MemberService implements MemberServiceI {
 
+	
+	public MemberService(){
+		
+		
+	}
+	
 	@Override
 	public MemberVo getMember(String userId) {
 		MemberDaoI memberDao = new MemberDao();
