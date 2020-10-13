@@ -25,6 +25,8 @@ public class JobsDao implements JobsDaoI {
 		
 		List<JobsVo> listjobs = session.selectList("Jobs.JobsSelectAll");
 		
+		session.commit();
+		session.close();
 		return listjobs;
 	}
 
