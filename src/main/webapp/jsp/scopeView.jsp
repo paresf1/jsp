@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action = "<%= request.getContextPath() %>/ScopeServlet" method = "POST">
+	<form action = "${pageContext.request.contextPath }/ScopeServlet" method = "POST">
 		<input type = "text" name = "param" /> <br>
 		<input type = "submit" value = "전송">
 	</form>

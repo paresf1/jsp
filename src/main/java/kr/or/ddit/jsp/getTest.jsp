@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 	<form action =  "<%= request.getContextPath() %>/sumCalculation" > --%>
+<%-- 	<form action =  "${pageContext.request.contextPath }/sumCalculation" > --%>
 	<input type="text" value = "" name = "start" >
 	<input type="text" value = "" name = "end" >
 	
