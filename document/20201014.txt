@@ -84,7 +84,11 @@ EL scope 기본객체 : pageScope, requestScope(request객체에 저장된 속�
 	
 	<%= request.getContextPath()%>
 
+총 데이터수 : 15
+페이지 사이즈 : 7
+15 / 7 = 2.xy => 올림 = 3
 
+/memberList?page=???
 
 
 

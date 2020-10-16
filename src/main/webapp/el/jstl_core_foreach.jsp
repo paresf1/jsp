@@ -39,6 +39,13 @@
 		</c:forEach>
 	</table>
 	
+	<c:forEach items="${memberList }" var = "aa">
+		${aa.userid }
+		${aa.pass }
+		${aa.usernm }
+		${aa.alias }
+	</c:forEach>
+	
 	<h3>위의 로직을 스크립틀릿과 표현식을 통해 재작성</h3>
 	
 	<% List<MemberVo> memList =(List<MemberVo>) request.getAttribute("memberList"); %>
@@ -85,6 +92,7 @@
 		Set<String> keys = map.keySet(); //key값을 가져와주는 map
 		Iterator<String> iterator =  keys.iterator();
 		
+		
 		while(iterator.hasNext()){
 			String key = iterator.next();
 			out.print(key + "<br>");
@@ -95,6 +103,9 @@
 		${m.key } / ${m.value }<br>
 	</c:forEach>
 	
+	<c:forEach items ="${map }" var = 'm'>
+		${m.key } / ${m.value }
+	</c:forEach>
 	
 </body>
 </html>
