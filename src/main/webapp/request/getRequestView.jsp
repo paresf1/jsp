@@ -58,6 +58,7 @@
 
 	<input type = "radio" value = "get"  id = "get"   name ="radio" >get
 	<input type = "radio" value = "post" id = "post"  name ="radio" >post
+	
 	<table>
 	<tr>
 		<td>
