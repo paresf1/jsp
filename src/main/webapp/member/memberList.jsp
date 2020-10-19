@@ -1,6 +1,8 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix= "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,14 +40,22 @@
 							<th>사용자 이름</th>
 							<th>사용자 별명</th>
 							<th>등록일시</th>
-							
 						</tr>
 					<c:forEach items="${memberList }" var="member">
 						<tr>
 							<td>${member.userid }</td> 
 							<td>${member.usernm }</td>
 							<td>${member.alias }</td>
-							<td>${member.reg_dt }</td>
+							
+							<% Date now = new Date(); 
+							request.setAttribute("now", now);
+							%>
+							
+<%-- 							<td>${now }</td> --%>
+							
+<%-- 							<td><fmt:formatDate value="${now }" pattern="YYYY-MM-dd"/></td> --%>
+<!-- 							format : yyyy-MM-dd -->
+							<td><fmt:formatDate value="${member.reg_dt }" pattern="YYYY-MM-dd"/></td>
 						</tr>
 					</c:forEach>
 			</table>
