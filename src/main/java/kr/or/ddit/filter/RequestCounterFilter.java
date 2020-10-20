@@ -51,8 +51,6 @@ private static final Logger logger = LoggerFactory.getLogger(RequestCounterFilte
 			requestCounterMap.put(req.getRequestURI(), value+1);
 			
 		}
-		chain.doFilter(request, response);
-		
 		// uri별 요청 횟수
 		// /memberlist 12
 		// /jstl/jstl/fmt_date.jsp 20
@@ -68,6 +66,14 @@ private static final Logger logger = LoggerFactory.getLogger(RequestCounterFilte
 		
 		// 등록된 다른 필터로 요청 위임
 		// 만약 더이상 등록된 FIlter가 없을 경우 요청을 처리할 서블릿 / jsp로 요청을 전달
+		
+		// 전처리 : 요청이 서블릿으로 가기전에 실행되는 부분
+		
+		logger.debug("RequestCounterFilter 전처리 부분 - chain.doFilter 호출전");
+		
+		chain.doFilter(request, response); //servlet 처리
+		logger.debug("RequestCounterFilter 후처리 부분 - chain.doFilter 호출후");
+//		 후처리 - servlet 응답생성후 응답이 웹브라우저로 가는 단계에서 후속처리
 	}
 
 	@Override

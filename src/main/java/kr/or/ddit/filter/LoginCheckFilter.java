@@ -46,6 +46,7 @@ public class LoginCheckFilter implements Filter {
     	 ){
          chain.doFilter(request, response);         
       }
+      
       else {
          HttpSession session = req.getSession();
          session.getAttribute("S_MEMBER");
