@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -27,6 +27,8 @@
 				<li><a href="#">Settings</a></li>
 				<li><a href="#">Profile</a></li>
 				<li><a href="#">Help</a></li>
+<%-- 				<li><a href="${pageContext.request.contextPath }/Logout">Logout</a></li> --%>
+				<li><a href="${cp }/Logout">Logout</a></li>
 			</ul>
 			<form class="navbar-form navbar-right">
 				<input type="text" class="form-control" placeholder="Search...">
@@ -34,3 +36,17 @@
 		</div>
 	</div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

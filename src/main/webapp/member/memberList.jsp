@@ -18,6 +18,19 @@
 <title>Jsp</title>
 
 <%@ include file="/layout/commonLib.jsp" %>
+<script>
+	$(document).ready(function(){
+		$("#memberList tr").on("click", function(){
+			// data-userid		
+			var userid = $(this).data("userid")
+			console.log("userid : " + userid)	
+
+			document.location = "/member?userid=" + userid;		
+		})
+	})
+</script>
+
+
 <body>
 <%@ include file = "/layout/header.jsp" %>
 
@@ -41,8 +54,11 @@
 							<th>사용자 별명</th>
 							<th>등록일시</th>
 						</tr>
+						
+					<tbody id="memberList">
 					<c:forEach items="${memberList }" var="member">
-						<tr>
+						<tr data-userid = "${member.userid }">
+<%-- 							<input type="hidden" value = "${member.userid }"/> --%>
 							<td>${member.userid }</td> 
 							<td>${member.usernm }</td>
 							<td>${member.alias }</td>
@@ -50,14 +66,10 @@
 							<% Date now = new Date(); 
 							request.setAttribute("now", now);
 							%>
-							
-<%-- 							<td>${now }</td> --%>
-							
-<%-- 							<td><fmt:formatDate value="${now }" pattern="YYYY-MM-dd"/></td> --%>
-<!-- 							format : yyyy-MM-dd -->
 							<td><fmt:formatDate value="${member.reg_dt }" pattern="YYYY-MM-dd"/></td>
 						</tr>
 					</c:forEach>
+					</tbody>
 			</table>
 		</div>
 
