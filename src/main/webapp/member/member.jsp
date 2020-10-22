@@ -17,6 +17,12 @@
 
 <%@ include file = "/layout/commonLib.jsp" %>
 </head>
+<style>
+	img{
+		width : 200px;
+		height : 180px;
+	}
+</style>
 
 <body>
 	<%@ include file = "/layout/header.jsp" %>
@@ -41,7 +47,8 @@
 					<div class="form-group">
 						<label for="filename" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img src="${cp }/profile/${memberVo.filename}">
+<%-- 							<img src="${cp }/profile/${memberVo.filename}"> --%>
+							<img src="${cp }/profileImg?userid=${memberVo.userid}">
 						</div>
 					</div>
 					
