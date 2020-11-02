@@ -1,1 +1,0 @@
-package kr.or.ddit.config.spring.ioc;
