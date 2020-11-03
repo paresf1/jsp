@@ -42,6 +42,7 @@
 	 	<property name="age" value = "30"/>
 	 	<property name="boardRepository" ref = "boardDao"/>
 	 </bean>
+	 
 </beans>
 
 
