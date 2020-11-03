@@ -49,7 +49,8 @@ public class IocDITest {
 
 	/***Then***/
 	assertEquals(person.getAge(), 30);
-	assertEquals("내용", person.getBoardRepository().getBoard(1).getContent()                           );
+	assertEquals("내용", person.getBoardRepository().getBoard(1).getContent());
+	
 	}
 	
 	//boardService, boardServiceC 스프링빈에 주입한 boardRepository 스프링빈은
