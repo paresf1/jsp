@@ -26,9 +26,10 @@ import kr.or.ddit.member.service.MemberServiceI;
 
 //@WebServlet 혹은 web.xml url-mapping을 통해 url 등록
 @SessionAttributes("rangers")
-@RequestMapping("/login")
+@RequestMapping(path = "/login")
 @Controller
 public class LoginController {
+	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Resource(name="memberService")
@@ -98,9 +99,9 @@ public class LoginController {
 	}	
 	
 	// localhost/login/unt/dd
-	@RequestMapping("/unt/{unt_cd}")
-	public String untMain(@PathVariable("unt_cd")String unt_cd) {
-		logger.debug("unt_cd :{}", unt_cd);
+	@RequestMapping("/unt/{unt_cda}")
+	public String untMain(@PathVariable("unt_cda")String result) {
+		logger.debug("unt_cd :{}", result);
 		return "main";
 	}
 	

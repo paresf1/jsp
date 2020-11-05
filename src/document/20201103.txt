@@ -75,7 +75,9 @@ ContextLoaderListener 클래스를 이용하여 서버 기동시 이벤트를 �
  		<param-name>contextConfigLocation</param-name>
  		<param-value>설정파일 위치</param-value>
  	</context-param>
- 	
+  	<listener>
+  		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  	</listener>
  	초기화 파라미터중 contextConfigLocation으로 설정된 값을 찾아
  	부모 컨테이너(service, dao)를 생성
  	

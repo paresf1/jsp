@@ -1,6 +1,7 @@
 <%@page import="javax.swing.text.Document"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,10 +48,8 @@
 
 		function setCookie(cookiName, cookieValue, expires){
 
-// 			"USERNM = brown; path =/; expires=Wed, 07 Oct 2020 00:38:35 GMT;"
 			
 			var today = new Date();
-			// 현재날짜에서 밀래로 + expires 만큼 한 날짜 구하기
 			today.setDate(today.getDate() + expires );
 			
 			document.cookie = cookiName + "=" + cookieValue + "; path =/; expires=" + today.toGMTString();
@@ -81,17 +80,6 @@
 				}
 				
 				$("form").submit();
-				
-				//내가 한거				
-// 				if($('input[type=checkbox]').attr('checked')== null){
-// 					Cookies.remove('REMEMBER')
-// 					Cookies.remove('USERNAME')
-// 				}else{
-// 				Cookies.set('REMEMBER', 'Y')
-				
-// 				var value = $('#inputEmail').val()
-// 				Cookies.set('USERNAME', a)
-// 			}		
 
 		})
 		
@@ -111,6 +99,12 @@
 		})
 		
 	</script>
+	
+	msg :${msg }<br>
+	msg_s : ${msg_s }<br>
+	<c:remove var="msg_s" scope="session"/>
+	msg_ra : ${msg_ra }
+	msg_ra_attr : ${msg_ra_attr }
 	
     <div class="container">
 
