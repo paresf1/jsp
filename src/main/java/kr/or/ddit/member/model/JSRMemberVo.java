@@ -4,9 +4,11 @@ import java.util.Date;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class MemberVo {
+public class JSRMemberVo {
 	private String userid;
 	private String pass;
+	
+	//Null이면 안되고, empty체크
 	
 	@NotEmpty
 	private String usernm;
@@ -26,13 +28,13 @@ public class MemberVo {
 				+ ", realFilename=" + realFilename + "]";
 	}
 
-	public MemberVo(){
+	public JSRMemberVo(){
 		
 	}
 	
 	@Override
 	public int hashCode() {
-		final int prime = 31;	
+		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((addr1 == null) ? 0 : addr1.hashCode());
 		result = prime * result + ((addr2 == null) ? 0 : addr2.hashCode());
@@ -55,7 +57,7 @@ public class MemberVo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		MemberVo other = (MemberVo) obj;
+		JSRMemberVo other = (JSRMemberVo) obj;
 		if (addr1 == null) {
 			if (other.addr1 != null)
 				return false;
@@ -209,7 +211,7 @@ public class MemberVo {
 	}
 
 
-	public MemberVo(String userid, String pass, String usernm, String alias, String addr1, String addr2, String zipcode,
+	public JSRMemberVo(String userid, String pass, String usernm, String alias, String addr1, String addr2, String zipcode,
 			String filename, String realFilename) {
 		
 		this.userid = userid;

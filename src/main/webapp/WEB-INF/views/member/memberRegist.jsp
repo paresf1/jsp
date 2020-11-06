@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,6 +104,8 @@ function initData(){
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="usernm" name="usernm"
 							 placeholder="사용자 이름" value = "${param.usernm }" >
+							 <span style = "color:red"><form:errors path="memberVo.usernm"/></span>
+<%-- 							 <span style = "color:red"><form:errors path="jSRMemberVo.usernm"/></span> --%>
 						</div>
 					</div>
 

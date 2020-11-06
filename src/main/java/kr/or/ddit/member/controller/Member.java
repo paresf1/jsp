@@ -7,11 +7,13 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.or.ddit.FileUpload.FileUploadUtil;
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.member.model.MemberVo;
+import kr.or.ddit.member.model.MemberVoValidator;
 import kr.or.ddit.member.service.MemberServiceI;
 
 //@WebServlet("/memberList")
@@ -64,8 +67,15 @@ public class Member{
 	}
 	
 	@RequestMapping(path="/memberRegist", params= {"userid"}, method = RequestMethod.POST)
-	public String memberRegistP(MemberVo memberVo, @RequestPart("realFilename2") MultipartFile file) {
+//	public String memberRegistP(MemberVo memberVo,BindingResult br, @RequestPart("realFilename2") MultipartFile file) {
+		public String memberRegistP(@Valid MemberVo memberVo,BindingResult br, @RequestPart("realFilename2") MultipartFile file) {
 		
+//		new MemberVoValidator().validate(memberVo, br);
+		
+		//검증을 통과하지 못했으므로 사용자 등록 화면으로 이동
+		if(br.hasErrors()) {
+			return "member/memberRegist";
+		}
 		String realfileName = file.getOriginalFilename();
 		String fileExtension = FileUploadUtil.getExtension(realfileName);
 		String fileName = "D:\\profile\\"+UUID.randomUUID().toString() + "."+fileExtension;

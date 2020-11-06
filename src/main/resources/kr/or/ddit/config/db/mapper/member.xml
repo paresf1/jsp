@@ -33,7 +33,7 @@
   </select>
   
   <insert id="insertMember" parameterType = "MemberVo">
-  		insert into users values(#{userid, jdbcType.VARCHAR}, #{usernm}, #{pass}, sysdate, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename}, #{realFilename})
+  		insert into users values(#{userid=jdbcType.VARCHAR}, #{usernm}, #{pass}, sysdate, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename}, #{realFilename})
   </insert>
   
   <delete id="deleteMember" parameterType = "String">
