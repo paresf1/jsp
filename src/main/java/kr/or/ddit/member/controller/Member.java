@@ -1,6 +1,8 @@
 package kr.or.ddit.member.controller;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Map;
 import java.util.UUID;
 
@@ -23,7 +25,6 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.or.ddit.FileUpload.FileUploadUtil;
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.member.model.MemberVo;
-import kr.or.ddit.member.model.MemberVoValidator;
 import kr.or.ddit.member.service.MemberServiceI;
 
 //@WebServlet("/memberList")
@@ -79,11 +80,20 @@ public class Member{
 		String realfileName = file.getOriginalFilename();
 		String fileExtension = FileUploadUtil.getExtension(realfileName);
 		String fileName = "D:\\profile\\"+UUID.randomUUID().toString() + "."+fileExtension;
-
+		
+		File uploadFile = new File(fileName);
+        	try {
+				file.transferTo(uploadFile);
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+        	
 		memberVo.setRealFilename(realfileName);
 		memberVo.setFilename(fileName);
+		logger.debug("memberVoRegist!!!!!!!!{}", memberVo);
 		int result = memberService.insertMember(memberVo);
 		
+		logger.debug("regist결과!!!!!!!!!{}",result);
 		if(result==1) {
 			return "redirect:/member/memberList";
 		}else {
@@ -104,9 +114,10 @@ public class Member{
 	@RequestMapping(path="/memberUpdate", method = RequestMethod.POST)
 	public String memberUpdateP(MemberVo memberVo, Model model, @RequestPart("realFilename2") MultipartFile file) {
 		MemberVo memberVoresult = memberService.getMember(memberVo.getUserid());
-		String fileName ="";
+		
 		String realfileName = file.getOriginalFilename();
 		String fileExtension = FileUploadUtil.getExtension(realfileName);
+		String fileName = "D:\\profile\\"+UUID.randomUUID().toString() + "."+fileExtension;
 		
 		logger.debug("paresf1memberVo{}",memberVoresult);
 		if(realfileName == null||realfileName.equals("")) {
@@ -114,7 +125,13 @@ public class Member{
 			fileName = memberVoresult.getFilename();
 			logger.debug("if절"+realfileName);
 		}else {
-			fileName = "D:\\profile\\"+UUID.randomUUID().toString() + "."+fileExtension;
+			
+			File uploadFile = new File(fileName);
+			try {
+				file.transferTo(uploadFile);
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		memberVo.setRealFilename(realfileName);

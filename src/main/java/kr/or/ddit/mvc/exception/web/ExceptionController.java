@@ -3,6 +3,7 @@ package kr.or.ddit.mvc.exception.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.or.ddit.mvc.exception.NoFileException;
@@ -10,6 +11,7 @@ import kr.or.ddit.mvc.exception.NoFileException;
 @Controller
 public class ExceptionController {
 	private static final Logger logger = LoggerFactory.getLogger(ExceptionController.class);
+	
 	@RequestMapping("/exception/view")
 	public String view() {
 		logger.debug("ExceptionController.view()");
@@ -34,7 +36,7 @@ public class ExceptionController {
 //		return "";
 	}
 	
-//	@ExceptionHandler({ArithmeticException.class})
+//	@ExceptionHandler({ArithmeticException.class}) //내가 처리하고 싶은 class를 지정
 //	public String handler() {
 //		logger.debug("ExceptionController.handler()");
 //		

@@ -65,7 +65,7 @@
 						<label for="filename" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
 <%-- 							<img src="${cp }/profile/${memberVo.filename}"> --%>
-							<img src="${cp }/member/profileImg?userid=${memberVo.userid}"><br>
+							<img src="${cp }/profileImg?userid=${memberVo.userid}"><br>
 							<button id="profileDownBtn" type="button" class="btn btn-default">다운로드 :${memberVo.realFilename } </button>
 						</div>
 					</div>

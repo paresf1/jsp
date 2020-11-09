@@ -1,6 +1,5 @@
 package kr.or.ddit.member.model;
 
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -15,7 +14,7 @@ public class MemberVoValidator implements Validator {
 	}
 	
 	//검증 로직을 작성
-	// Object atrget : command 객체
+	// Object target : command 객체
 	
 	@Override
 	public void validate(Object target, Errors errors) {

@@ -14,6 +14,6 @@ public class ExceptionAdvice {
 		logger.debug("ExceptionController.handler()");
 		
 		//에러를 처리할 화면
-		return"error/404/404.html";
+		return"exception/arithmetic";
 	}
 }
