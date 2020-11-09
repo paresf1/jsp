@@ -17,6 +17,7 @@
 	
 	<bean id = "profileImgView" class="kr.or.ddit.mvc.view.ProfileImgView"/>
 	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean>
+	<bean id="excelView" class="kr.or.ddit.mvc.view.ExcelDownloadView"></bean>
 	
 <!-- 	resolver에 우선순위 name, value value값이 낮은게 먼저 우선순위-->
 	<bean class = "org.springframework.web.servlet.view.BeanNameViewResolver">
