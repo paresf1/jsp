@@ -21,7 +21,7 @@ public class ExcelDownloadView extends AbstractView{
          HttpServletResponse response) throws Exception {
 
       // model 객체에서 header, data 가져오기
-      List<String> header =(List<String>) model.get("header");
+      List<String> header =(List<String>)model.get("header");
       List<Map<String, String>> data =(List<Map<String, String>>) model.get("data");
       
       // excel 파일 contentType : application/vnd.ms-excel; UTF-8

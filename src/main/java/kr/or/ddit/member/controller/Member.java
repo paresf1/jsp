@@ -49,7 +49,9 @@ public class Member{
 		model.addAttribute("memberList", map.get("memberList"));
 		model.addAttribute("pages", map.get("pages"));
 		
-		return "member/memberList";
+//		return "member/memberList";
+		
+		return "tiles.member.memberListContent";
 	}
 	
 	@RequestMapping(path="/memberContent")
@@ -58,13 +60,13 @@ public class Member{
 		MemberVo memberVo = memberService.getMember(userid);
 		model.addAttribute("memberVo", memberVo);
 		
-		return "member/memberContent";
+		return "tiles.member.memberContentContent";
 	}
 	
 	@RequestMapping(path="/memberRegist", method = RequestMethod.GET)
 	public String memberRegistG() {
 		
-		return "member/memberRegist"; 
+		return "tiles.member.memberRegistContent"; 
 	}
 	
 	@RequestMapping(path="/memberRegist", params= {"userid"}, method = RequestMethod.POST)
@@ -75,7 +77,7 @@ public class Member{
 		
 		//검증을 통과하지 못했으므로 사용자 등록 화면으로 이동
 		if(br.hasErrors()) {
-			return "member/memberRegist";
+			return "tiles.member.memberRegistContent";
 		}
 		String realfileName = file.getOriginalFilename();
 		String fileExtension = FileUploadUtil.getExtension(realfileName);
@@ -95,9 +97,9 @@ public class Member{
 		
 		logger.debug("regist결과!!!!!!!!!{}",result);
 		if(result==1) {
-			return "redirect:/member/memberList";
+			return "tiles.member.memberListContent";
 		}else {
-			return "member/memberRegist";
+			return "tiles.member.memberRegistContent";
 		}
 	}
 	
@@ -106,7 +108,7 @@ public class Member{
 		MemberVo memberVo = memberService.getMember(userid);
 		model.addAttribute("memberVo", memberVo);
 		
-		return "member/memberUpdate";
+		return "tiles.member.memberUpdateContent";
 	
 	}
 //	@RequestParam(S)
@@ -138,9 +140,9 @@ public class Member{
 		memberVo.setFilename(fileName);
 		int result = memberService.updateMember(memberVo);
 		if(result==1) {
-			return "redirect:/member/memberContent?userid="+memberVoresult.getUserid();
+			return "tiles.member.memberContentContent?userid="+memberVoresult.getUserid();
 		}else {
-			return "member/memberUpdate?userid="+memberVo.getUserid();
+			return "tiles.member.memberUpdateContent?userid="+memberVo.getUserid();
 		}
 	}
 	
