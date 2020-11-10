@@ -54,6 +54,60 @@ public class Member{
 		return "tiles.member.memberListContent";
 	}
 	
+	@RequestMapping("/listAjaxPage")
+	public String listAjaxPage() {
+		return "tiles.member.listAjaxPage";
+	}
+	
+	//페이지 요청(/list와 다르게 page, pageSize 파라미터가 반드시 존재한다는 가정으로 작성)	
+	@RequestMapping("/listAjax")
+	public String listAjax(PageVo pageVo, Model model) {
+		logger.debug("pageVo : {}", pageVo);
+		
+		Map<String, Object> map =  memberService.selectMemberPageList(pageVo);
+		model.addAttribute("memberList", map.get("memberList"));
+		model.addAttribute("pages", map.get("pages"));
+		
+		return "jsonView";
+	}
+	
+	@RequestMapping("/listAjaxHTML")
+	public String listAjaxHTML(PageVo pageVo, Model model) {
+		logger.debug("pageVo : {}", pageVo);
+		
+		Map<String, Object> map =  memberService.selectMemberPageList(pageVo);
+		model.addAttribute("memberList", map.get("memberList"));
+		model.addAttribute("pages", map.get("pages"));
+		
+		//응답을 html ==> jsp로 생성
+		return "member/listAjaxHTML";
+	}
+		
+	@RequestMapping("/ContentAjaxPage")
+	public String ContentAjaxPage() {
+
+		return "tiles.member.ContentAjaxPage";
+	}
+	
+//	@RequestMapping("/ContentAjax")
+//	public String ContentAjax(@RequestParam(name="userid")String userid,Model model) {
+//		
+//		MemberVo memberVo = memberService.getMember(userid);
+//		model.addAttribute("memberVo", memberVo);
+//		return "jsonView";
+//	}
+	
+	@RequestMapping("/ContentAjaxHTML")
+	public String ContentAjaxHTML(@RequestParam(name="userid")String userid,Model model) {
+		
+		MemberVo memberVo = memberService.getMember(userid);
+		model.addAttribute("memberVo", memberVo);
+		
+		//응답을 html ==> jsp로 생성
+		return "member/ContentAjaxHTML";
+	}
+	
+	
 	@RequestMapping(path="/memberContent")
 	public String memberContent(@RequestParam(name="userid")String userid,Model model) {
 		
@@ -97,7 +151,7 @@ public class Member{
 		
 		logger.debug("regist결과!!!!!!!!!{}",result);
 		if(result==1) {
-			return "tiles.member.memberListContent";
+			return "redirect:memberList";
 		}else {
 			return "tiles.member.memberRegistContent";
 		}
@@ -140,9 +194,9 @@ public class Member{
 		memberVo.setFilename(fileName);
 		int result = memberService.updateMember(memberVo);
 		if(result==1) {
-			return "tiles.member.memberContentContent?userid="+memberVoresult.getUserid();
+			return "redirect:memberContent?userid="+memberVoresult.getUserid();
 		}else {
-			return "tiles.member.memberUpdateContent?userid="+memberVo.getUserid();
+			return "redirect:memberUpdate?userid="+memberVo.getUserid();
 		}
 	}
 	
@@ -153,7 +207,7 @@ public class Member{
 		response.setContentType("image/png");
 		// 사용자 아이디 파라미터 확인하고
 		
-		// db에서 사용자 filename 확인
+		// db에에서 사용자 filename 확인
 		MemberVo getmemberVo = memberService.getMember(memberVo.getUserid());
 		
 		// 경로 확인 후 파일 입출력을 통해서 응답생성

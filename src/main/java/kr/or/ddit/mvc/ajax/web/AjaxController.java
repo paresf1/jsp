@@ -30,6 +30,7 @@ public class AjaxController {
 	@RequestMapping(path="/ajax/json", 
 					consumes= {"application/json"},
 					produces = {"application/json", "application/xml"})
+	// 마샬링 언마샬링 json을 파라미터로 보내야에 따라 처리 방식이 달라진다.
 	public MemberVo json(@RequestBody MemberVo memberVo) {
 		logger.debug(" body : {}", memberVo);
 		memberVo.setAlias("곰");

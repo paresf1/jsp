@@ -46,7 +46,8 @@ public class MemberService implements MemberServiceI {
 		// 15/7 = 2.14.... 올림을 하여 3개의 페이지가 필요
 		//Math.ceil()
 		int totalCnt = memberDao.selectMemberTotalCnt(sqlSession);
-		int pages = (int)Math.ceil( (double)totalCnt/7);
+		int pages = (int)Math.ceil((double)totalCnt/pv.getPageSize());
+		System.out.println("결과값"+pages);
 		map.put("pages", pages);
 		
 		sqlSession.close();

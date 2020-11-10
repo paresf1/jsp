@@ -21,7 +21,7 @@
 		 tiles.member.member
 		 tiles.member.regist
 		 tiles.member.update
-		  -->
+		 -->
 <!-- 	<definition name="tiles.memberList.{1}" extends="basic.layout"> -->
 <!-- 		<put-attribute name="content" value="/WEB-INF/views/member/memberListContent.jsp"></put-attribute> -->
 <!-- 	</definition> -->
