@@ -1,4 +1,4 @@
-package kr.or.ddit.login.web;
+	package kr.or.ddit.login.web;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -54,7 +54,6 @@ public class LoginController {
 	public String json() {
 		
 		return "jsonView"; // <bean id="jsonView" class="MappingJackson2JsonView"
-			
 				// view resolver를 두개 등록함
 				// 1. beanNameViewResolver
 				// 		viewName해당하는 빈이 있는지 찾음
@@ -95,7 +94,6 @@ public class LoginController {
 						@RequestParam(name="email", required = false, defaultValue = "brown@line.kr") 
 						String user_id )//파라미터가 반드시 있어야 한다. 
 	{
-		
 		logger.debug("LoginController.process(){} /{} / {}", userid, pass, memberVo);
 		logger.debug("user_id : {}",user_id);
 		MemberVo memberVo2 = memberService.getMember(userid);

@@ -16,7 +16,8 @@ public class BoardRepository implements BoardRepositoryI{
 			return new BoardVo(1, "첫번쨰 글", "내용");
 		}
 		
-		else
-		return null;
+		else {
+			return null;
+		}
 	}
 }

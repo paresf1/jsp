@@ -32,6 +32,7 @@ public class MemberService implements MemberServiceI {
 	public MemberVo getMember(String userId) {
 		return memberDao.getMember(userId);
 	}
+	
 	@Override
 	public List<MemberVo> selectAllMember() {
 		return memberDao.selectAllMember();
@@ -40,20 +41,18 @@ public class MemberService implements MemberServiceI {
 	@Override
 	public Map<String, Object> selectMemberPageList(PageVo pv) {
 		
-		SqlSession sqlSession = MybatisUtil.getSqlSession();
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("memberList", memberDao.selectMemberPageList(sqlSession, pv));
+		map.put("memberList", memberDao.selectMemberPageList(pv));
 		
 		//15건, 페이지 사이즈를 7로 가정했을때 3개의 페이지가 나와야한다
 		// 15/7 = 2.14.... 올림을 하여 3개의 페이지가 필요
 		//Math.ceil()
-		int totalCnt = memberDao.selectMemberTotalCnt(sqlSession);
+		int totalCnt = memberDao.selectMemberTotalCnt();
 		int pages = (int)Math.ceil((double)totalCnt/pv.getPageSize());
 		System.out.println("결과값"+pages);
 		map.put("pages", pages);
 		
-		sqlSession.close();
 		return map;
 		
 	}

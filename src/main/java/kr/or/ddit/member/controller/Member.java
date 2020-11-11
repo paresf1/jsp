@@ -147,14 +147,15 @@ public class Member{
 		memberVo.setRealFilename(realfileName);
 		memberVo.setFilename(fileName);
 		logger.debug("memberVoRegist!!!!!!!!{}", memberVo);
-		int result = memberService.insertMember(memberVo);
-		
-		logger.debug("regist결과!!!!!!!!!{}",result);
-		if(result==1) {
-			return "redirect:memberList";
-		}else {
-			return "tiles.member.memberRegistContent";
+		int result = 0;
+		try {
+			result = memberService.insertMember(memberVo);
+			if (result == 1) {
+				return "redirect:/member/memberList";
+			}
+		} catch (Exception e) {
 		}
+		return "tiles.member.memberRegistContent";
 	}
 	
 	@RequestMapping(path="/memberUpdate", method = RequestMethod.GET)
@@ -194,9 +195,9 @@ public class Member{
 		memberVo.setFilename(fileName);
 		int result = memberService.updateMember(memberVo);
 		if(result==1) {
-			return "redirect:memberContent?userid="+memberVoresult.getUserid();
+			return "redirect:/member/memberContent?userid="+memberVo.getUserid();
 		}else {
-			return "redirect:memberUpdate?userid="+memberVo.getUserid();
+			return "redirect:/member/memberUpdate?userid="+memberVo.getUserid();
 		}
 	}
 	

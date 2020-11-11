@@ -9,35 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-<!-- 	<context-param> -->
-<!-- 		<param-name>a</param-name> -->
-<!-- 		<param-value></param-value> -->
-<!-- 	</context-param> -->
 
-<!-- 	<servlet> -->
-<!-- 		<servlet-name>b</servlet-name> -->
-<!-- 		<servlet-class>org.springframework.web.servlet.</servlet-class> -->
-<!-- 		<init-param> -->
-<!-- 			<param-name>a</param-name> -->
-<!-- 			<param-value></param-value> -->
-<!-- 		</init-param> -->
-<!-- 	</servlet> -->
-	
-<!-- 	<listener> -->
-<!-- 		<listener-class></listener-class> -->
-<!-- 	</listener> -->
-	
-<!-- 	<servlet-mapping> -->
-<!-- 		<servlet-name>b</servlet-name> -->
-<!-- 		<url-pattern>/</url-pattern> -->
-<!-- 	</servlet-mapping> -->
 	
   <!-- 스프링 부모 컨테이너 생성 : service, repository -->
   <context-param>
   	<param-name>contextConfigLocation</param-name>
   	<param-value>classpath:kr/or/ddit/config/spring/root-context.xml
   				 classpath:kr/or/ddit/config/spring/aop-context.xml
+  				 classpath:kr/or/ddit/config/spring/datasource-context.xml
   	</param-value>
   </context-param>
   

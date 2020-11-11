@@ -28,7 +28,7 @@ public class MemberTest extends WebTestConfig {
 					.andReturn();
 		
 		ModelAndView mav = result.getModelAndView();
-		assertEquals("member/memberList", mav.getViewName());
+		assertEquals("tiles.member.memberListContent", mav.getViewName());
 	}
 	
 	@Test
@@ -47,8 +47,7 @@ public class MemberTest extends WebTestConfig {
 				.param("addr1", "대전")
 				.param("addr2", "흰둥이집")
 				.param("zipcode", "9999"))
-				.andExpect(view().name("redirect:/member/memberList"))
-				.andExpect(status().is(302));
+				.andExpect(view().name("redirect:/member/memberList"));
 	}
 	
 	
@@ -59,7 +58,7 @@ public class MemberTest extends WebTestConfig {
 				.andReturn();
 	
 		ModelAndView mav = result.getModelAndView();
-		assertEquals("member/memberContent", mav.getViewName());
+		assertEquals("tiles.member.memberContentContent", mav.getViewName());
 	
 		MemberVo memberVo = (MemberVo) mav.getModel().get("memberVo");
 		assertEquals("cony",memberVo.getUserid());
@@ -72,7 +71,7 @@ public class MemberTest extends WebTestConfig {
 		mockMvc.perform(get("/member/memberUpdate")
 				.param("userid", "brown"))
 				.andExpect(status().isOk())
-				.andExpect(view().name("member/memberUpdate"))
+				.andExpect(view().name("tiles.member.memberUpdateContent"))
 				.andReturn();
 	}
 	
@@ -83,17 +82,17 @@ public class MemberTest extends WebTestConfig {
 		MockMultipartFile file = new MockMultipartFile("realFilename2", "sally.png", "image/png", is);
 		mockMvc.perform(fileUpload("/member/memberUpdate")
 				.file(file)
-				.param("userid", "LebronJames")
+				.param("userid", "brown")
 				.param("usernm", "king")
 				.param("pass", "coby")
 				.param("alias", "kingking")
 				.param("addr1", "대전")
 				.param("addr2", "흰둥이집")
 				.param("zipcode", "9999"))
-				.andExpect(view().name("redirect:/member/memberContent?userid=LebronJames"))
+				.andExpect(view().name("redirect:/member/memberContent?userid=brown"))
 				.andExpect(status().is(302));
 	}
 	
-	
+
 	
 }

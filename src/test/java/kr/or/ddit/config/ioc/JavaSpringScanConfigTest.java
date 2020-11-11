@@ -37,5 +37,4 @@ public class JavaSpringScanConfigTest {
 		assertNotNull(boardService);
 		assertEquals("내용", boardVo.getContent());
 	}
-
 }

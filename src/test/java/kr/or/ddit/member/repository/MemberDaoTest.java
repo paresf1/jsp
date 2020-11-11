@@ -1,5 +1,6 @@
 package kr.or.ddit.member.repository;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -28,8 +29,19 @@ public class MemberDaoTest extends ModelTestConfig{
 		/***When***/
 		List<MemberVo> memberList =  memberDao.selectAllMember();
 		/***Then***/
-		assertTrue(memberList.size() >10);
+		
+		assertEquals(16, memberList.size());
 		
 	}
+
+	@Test
+	public void deleteMemberTest() {
+		/***Given***/
+		String id ="brown";
+		/***When***/
+		int deleteCnt =  memberDao.deleteMember(id);
+		/***Then***/
+		assertEquals(deleteCnt, 1);
+	}	
 	
 }
