@@ -28,6 +28,7 @@ import kr.or.ddit.member.model.MemberVo;
 import kr.or.ddit.member.service.MemberServiceI;
 
 //@WebServlet("/memberList")
+
 @RequestMapping(path="/member")
 @Controller
 public class Member{
