@@ -111,6 +111,7 @@ public class ApplicationContext extends WebMvcConfigurerAdapter{
 	 	<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"></property>  
 	 </bean>
 	 */
+	@Bean
 	public TilesViewResolver tilesViewResolver() {
 		TilesViewResolver tilesViewResolver = new TilesViewResolver();
 		tilesViewResolver.setOrder(0);

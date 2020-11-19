@@ -25,6 +25,20 @@ kr.or.ddit.mail.service
 ==> service 패키지에 있는 모든 클래스의 메소드가 실행될 때 --> pointCut
 		Profiling ( 시간 측정)
 
+5 
+5 10 15
+
+1 2 3 4 5
+1
+
+6 7 8 9 10
+6
+
+11 12 13 14 15 sdf
+11
+
+
+
 
 
 

@@ -75,7 +75,7 @@
 
 	function memberListAJaxHTML(p){
 		$.ajax({url : "/member/listAjaxHTML",
-			data : {page : p, pageSize : 5},
+// 			data : {page : p, pageSize : 5},
 			//data : "page=1&pageSize=5"
 			//data : JSON.stringfy({page : 1, pageSize : 5}),
 			//			Controller에서 @RequestBody JSON <-->JAVA OBJECT

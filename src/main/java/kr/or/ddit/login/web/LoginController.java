@@ -90,12 +90,10 @@ public class LoginController {
 	@RequestMapping(path="/process")
 	public String process(String userid, String pass, MemberVo memberVo, 
 						@RequestBody String body,
-						HttpSession session,Model model, 
-						@RequestParam(name="email", required = false, defaultValue = "brown@line.kr") 
-						String user_id )//파라미터가 반드시 있어야 한다. 
+						HttpSession session,Model model) 
+						//파라미터가 반드시 있어야 한다. 
 	{
 		logger.debug("LoginController.process(){} /{} / {}", userid, pass, memberVo);
-		logger.debug("user_id : {}",user_id);
 		MemberVo memberVo2 = memberService.getMember(userid);
 		logger.debug("LoginController.process(){} /{} / {}", userid, pass, memberVo);
 		
@@ -104,7 +102,7 @@ public class LoginController {
 		
 		//db에서 조회한 사용자 정보가 존재하면 ==> main.jsp로 이동
 		//db에서 조회한 사용자 정보가 존재하지 않으면 ==> login.jsp로 이동
-		if(memberVo!=null && memberVo.getPass().equals(memberVo2.getPass())) {
+		if(memberVo2!=null) {
 			session.setAttribute("S_MEMBER", memberVo2);
 			
 			// jsp/servlet 기반에서 사용한 코드 : request.setAttribute("to_day", new Date());

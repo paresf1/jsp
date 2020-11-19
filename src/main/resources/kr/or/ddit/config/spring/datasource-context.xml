@@ -22,6 +22,7 @@
  		<property name="maxIdle" value="2"/>
 	</bean>
 	
+	
 	<!-- mybatisUtil 역할 -->
 	<!-- sqlSessionFactoryBean 객체는 객체를 생성하는 역할을 담당하는 객체
 		스프링 프레임워크는 스프링 빈을 생성시 객체가 FacotryBean 인터페이스를 구현한 경우

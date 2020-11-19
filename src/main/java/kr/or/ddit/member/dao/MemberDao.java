@@ -4,12 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import kr.or.ddit.common.model.PageVo;
-import kr.or.ddit.db.MybatisUtil;
 import kr.or.ddit.member.model.MemberVo;
 
 @Repository("memberDao")

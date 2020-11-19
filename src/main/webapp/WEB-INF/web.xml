@@ -36,7 +36,7 @@
   		<param-value>kr.or.ddit.config.spring.ApplicationContext
   		</param-value>
   	</init-param>
-<!--   	해도 괜찮고 안해도 괜찮다 -->
+  	
   	<init-param>
   	<param-name>contextClass</param-name>
   	<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>

@@ -24,6 +24,14 @@ public class MemberVoValidator implements Validator {
 		if(memberVo.getUsernm() ==null || memberVo.getUsernm().equals("")) {
 			errors.rejectValue("usernm", "required");
 		}
+		
+		if(memberVo.getUserid() ==null || memberVo.getUserid().equals("")) {
+			errors.rejectValue("userid", "required");
+		}
+		
+		if(memberVo.getPass() ==null || memberVo.getPass().equals("")) {
+			errors.rejectValue("pass", "required");
+		}
 	}
 }
 

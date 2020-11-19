@@ -23,6 +23,10 @@
 
     <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath }/css/signin.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
+    <link href="/css/signin.css" rel="stylesheet">
+    <link href="../css/signin.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type = "text/javascript" src="${pageContext.request.contextPath }/js/js.cookie-2.2.1.min.js"></script>
@@ -33,6 +37,7 @@
 				
 	<script>
 <%-- 	<% Cookie[] cookies= request.getCookies();%>		 --%>
+
 		function getCookieValue(cookieName){
 			cookies = document.cookie.split("; ")//이름, 벨류로 나뉘어짐
 			names = "";
@@ -41,7 +46,7 @@
 				names = cookies[i].split("=");// 이름과 벨류 두개로만 나뉘어짐
 				if(names[0]==(cookieName)){
 					values = names[1];
-					}
+				}
 			}
 			return values
 				
@@ -61,7 +66,7 @@
 
 		//해당쿠키의 expires속성을 과거날짜로 변경
 		function deleteCookie(cookieName){
-			setCookie(cookieName, "", -1);			
+			setCookie(cookieName, "", -1);				q
 		}
 
 		$(function(){
@@ -112,9 +117,9 @@
       <form class="form-signin" action="${pageContext.request.contextPath }/login/process" method="post">
         <h2 class="form-signin-heading"><spring:message code="login.signin"/></h2>
         <label for="inputEmail" class="sr-only"><spring:message code="login.userid"/></label>
-        <input type="email" id="inputEmail" name = "userid" class="form-control" placeholder="Email address" required autofocus value = "brown">
+        <input type="email" id="inputEmail" name = "userid" class="form-control" placeholder="Email address" required autofocus value = "">
         <label for="inputPassword" class="sr-only"><spring:message code="login.password"/></label>
-        <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required value = "brownPass">
+        <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required value = "">
         <div class="checkbox">
           <label>
             <input name = "check" type="checkbox" value="remember-me"  > <spring:message code="login.rememberme"/>
